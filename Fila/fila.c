@@ -3,30 +3,35 @@
 
 #define MAX 100 // tamanho mnáximo
 
-typedef struct 
+typedef struct
 {
-   int itens[MAX];
-   int frente, tras;
-   int tamanho;
+    int itens[MAX];
+    int frente, tras;
+    int tamanho;
 } Fila;
 
-void inicializarFila(Fila *f){
-    f->frente =0;
+void inicializarFila(Fila *f)
+{
+    f->frente = 0;
     f->tras = -1;
-    f->tamanho = 0; 
+    f->tamanho = 0;
 }
 
-int estaVazia(Fila *f){
-    return(f->tamanho == 0);
+int estaVazia(Fila *f)
+{
+    return (f->tamanho == 0);
 }
 
-int estaCheia(Fila *f){
-    return(f->tamanho == MAX);
+int estaCheia(Fila *f)
+{
+    return (f->tamanho == MAX);
 }
 
 // Função enfileirar - inseri valor no final
-void enqueue(Fila *f, int valor){
-    if(estaCheia(f)){
+void enqueue(Fila *f, int valor)
+{
+    if (estaCheia(f))
+    {
         printf("Fila está cheia!");
         return;
     }
@@ -34,10 +39,11 @@ void enqueue(Fila *f, int valor){
     f->itens[f->tras] = valor;
     f->tamanho++;
 }
-
-//desenfileirar
-int dequeue(Fila *f){
-    if(estaVazia(f)){
+// desenfileirar
+int dequeue(Fila *f)
+{
+    if (estaVazia(f))
+    {
         printf("Fila está vazia!");
         return;
     }
@@ -47,8 +53,10 @@ int dequeue(Fila *f){
     return valor;
 }
 
-int front(Fila *f){
-     if(estaVazia(f)){
+int front(Fila *f)
+{
+    if (estaVazia(f))
+    {
         printf("Fila está vazia!");
         return;
     }
