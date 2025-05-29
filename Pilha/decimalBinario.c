@@ -51,4 +51,5 @@ int main(void)
     char binario[MAX]; // usamos MAX para fijar un limite
     converterBinario(numero, binario);
     printf("binario de %d: %s", numero, binario);
+    return 0;
 }

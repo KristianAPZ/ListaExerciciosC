@@ -46,4 +46,5 @@ int main(void)
     printf("Frase inicial: %s\n", frase);
     inverterString(frase);
     printf("Frase final: %s", frase);
+    return 0;
 }

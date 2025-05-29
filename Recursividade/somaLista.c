@@ -19,4 +19,5 @@ int main(void)
     int tamanho = 4;
     int resultado = somaLista(lista, 0, tamanho);
     printf("A soma da lista é %d\n", resultado);
+    return 0;
 }

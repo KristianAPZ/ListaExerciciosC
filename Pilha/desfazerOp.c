@@ -19,6 +19,7 @@ void adicionar(Pilha *p, const char *texto) // el codigo no necesita modificar e
     if (estaCheia(p))
     {
         printf("Pilha Cheia\n");
+        return;
     }
     else
     {
@@ -44,6 +45,7 @@ int desfazer(Pilha *p)
     else
     {
         printf("Lista vazia\n");
+        return;
     }
 }
 
@@ -71,4 +73,5 @@ int main(void)
     desfazer(&p);
 
     mostrarPilha(&p);
+    return 0;
 }

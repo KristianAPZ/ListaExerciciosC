@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/apaza/C/ListaC/Recursividade",
-      "program": "c:/Users/apaza/C/ListaC/Recursividade/build/Debug/outDebug",
+      "cwd": "c:/Users/apaza/C/ListaExerciciosC/Pilha",
+      "program": "c:/Users/apaza/C/ListaExerciciosC/Pilha/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
