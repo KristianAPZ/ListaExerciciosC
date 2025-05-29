@@ -9,10 +9,7 @@ typedef struct
     int topo;
 } Pilha;
 
-void inicializarPilha(Pilha *p)
-{
-    p->topo = -1; // iniciamos pila desde -1, para que el siguiente sea 0 y asi consecutivamente
-}
+void inicializarPilha(Pilha *p) { p->topo = -1; }
 
 void push(Pilha *p, int valor)
 {
