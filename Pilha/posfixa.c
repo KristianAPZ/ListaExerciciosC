@@ -81,7 +81,7 @@ int posfixa(const char *exprecao)
             // creamos dos variables donde almacenaremos con un pop
             int b = pop(&p);
             int a = pop(&p);
-            switch (exprecao[i])
+            switch (exprecao[i]) // switch para este caso es mejor que else if
             {
             case '+':
                 push(&p, a + b);
