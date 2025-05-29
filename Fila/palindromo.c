@@ -4,7 +4,7 @@
 
 #define MAX 100
 
-// ---- structures ----
+// ---- estruturas ----
 
 typedef struct
 {

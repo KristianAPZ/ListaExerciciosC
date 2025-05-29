@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 100
+#define MAX 5
+
+// estrutura
 
 typedef struct
 {
@@ -13,7 +15,7 @@ typedef struct
 void inicializarFila(Fila *f)
 {
     f->frente = 0;
-    f->tras = -1;
+    f->tras = 0;
     f->tamanho = 0;
 }
 
@@ -24,25 +26,23 @@ void enqueue(Fila *f, int valor)
 {
     if (estaCheia(f))
     {
-        printf("Fila cheia");
+        printf("Fila cheia!\n");
         return;
     }
-    f->tras = (f->tras + 1); // para avanzar en tras
     f->items[f->tras] = valor;
+    f->tras = (f->tras + 1) % MAX;
     f->tamanho++;
-    printf("O turno %d foi adicionado\n", valor);
 }
 int dequeue(Fila *f)
 {
     if (estaVazia(f))
     {
-        printf("Fila vazia");
+        printf("Fila vazia!\n");
         return;
     }
     int valor = f->items[f->frente];
-    f->frente = (f->frente + 1);
+    f->frente = (f->frente + 1) % MAX;
     f->tamanho--;
-    printf("Atendendo ao turno %d\n", valor);
     return valor;
 }
 
@@ -50,16 +50,20 @@ void mostrarFila(Fila *f)
 {
     if (estaVazia(f))
     {
-        printf("Fila vazia");
+        printf("Fila Vazia");
         return;
     }
-    printf("Clientes em fila:\n");
+    printf("Fila: ");
     for (int i = 0; i < f->tamanho; i++)
     {
-        int pos = (f->frente + i);
-        printf("- Turno %d\n", f->items[pos]);
+        int indice = (f->frente + i) % MAX;
+        printf("%d ", f->items[indice]);
     }
+    printf("\n");
 }
+
+// main
+
 int main(void)
 {
     Fila f;
@@ -69,13 +73,14 @@ int main(void)
     enqueue(&f, 2);
     enqueue(&f, 3);
     enqueue(&f, 4);
+    enqueue(&f, 5);
 
     mostrarFila(&f);
 
     dequeue(&f);
     dequeue(&f);
     dequeue(&f);
-    dequeue(&f);
 
+    enqueue(&f, 6);
     mostrarFila(&f);
 }
