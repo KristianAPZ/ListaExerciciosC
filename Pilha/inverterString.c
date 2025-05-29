@@ -11,7 +11,7 @@ typedef struct
 
 void inicializarPilha(Pilha *p) { p->topo = -1; }
 
-void push(Pilha *p, int valor)
+void push(Pilha *p, char valor)
 {
     p->topo++;                 // suma 1 al valor de la cima
     p->items[p->topo] = valor; // en items usamos el numero de topo, y le damos el valor
@@ -19,9 +19,9 @@ void push(Pilha *p, int valor)
 
 int pop(Pilha *p)
 {
-    int valor = p->items[p->topo]; // guardamos en "valor" el ultimo elemento de la pila
-    p->topo--;                     // borramos
-    return valor;                  // retornamos el valor
+    char valor = p->items[p->topo]; // guardamos en "valor" el ultimo elemento de la pila
+    p->topo--;                      // borramos
+    return valor;                   // retornamos el valor
 }
 
 void inverterString(char *letra)
