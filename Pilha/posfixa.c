@@ -55,7 +55,7 @@ int posfixa(const char *exprecao)
 
     while (exprecao[i] != '\0')
     {
-        if (exprecao[i] == ' ')
+        if (exprecao[i] == ' ') // si es un espacio salta al siguiente valor
         {
             i++;
             continue;
@@ -63,16 +63,22 @@ int posfixa(const char *exprecao)
 
         if (eDigito(exprecao[i]))
         {
+            // aqui lo que hacemos es colocar los numeros de más de 1 cifra, como 10, 100, etc.
             int numero = 0;
             while (eDigito(exprecao[i]))
             {
-                numero = numero * 10 + charToInt(exprecao[i]);
+                numero = numero * 10 + charToInt(exprecao[i]); // convertimos el numero a entero, ya que esta en char
                 i++;
             }
             push(&p, numero);
+            // si el numero es por ejemplo 100, entonces seria
+            // 0*10+1= 1 | se suma 1 a i, asi que pasa al siguiente digito, además numero ahora seria 1
+            // 1*10+0 = 10
+            // 10*10+0 = 100
         }
         else
         {
+            // creamos dos variables donde almacenaremos con un pop
             int b = pop(&p);
             int a = pop(&p);
             switch (exprecao[i])
