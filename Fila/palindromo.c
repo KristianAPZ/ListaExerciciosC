@@ -34,8 +34,8 @@ void push(Pilha *p, char valor)
 int pop(Pilha *p)
 {
     char valor = p->items[p->topo];
-    p->topo--;
-    return valor;
+    p->topo--;// remover
+    return valor; 
 }
 
 // ---- fila ----
