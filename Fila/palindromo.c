@@ -8,15 +8,15 @@
 
 typedef struct
 {
-    char items[MAX];
+    char items[MAX]; // Pilha (LIFO – ultimo en entrar - primero en salir)
     int topo;
 } Pilha;
 
-typedef struct
+typedef struct // Fila (FIFO – Primero en entrar - primero en salir)
 {
     char items[MAX];
-    int frente, tras;
-    int tamanho;
+    int frente, tras;  // frente - posicion del primer elemento, tras - posicion del ultimo elemento
+    int tamanho; // cantidad de elementos en la fila
 } Fila;
 
 // ---- pilha ----
@@ -82,20 +82,20 @@ int ehPalindromo(char palavra[])
     Fila f;
     inicializarPilha(&p);
     inicializarFila(&f);
-
-    for (int i = 0; palavra[i] != '\0'; i++)
+    // inicializar pilha e fila
+    for (int i = 0; palavra[i] != '\0'; i++) // percorrer cada caracter do string
     {
-        if (isalpha(palavra[i]))
+        if (isalpha(palavra[i])) //ctype.h
         {
-            char caracter = tolower(palavra[i]);
+            char caracter = tolower(palavra[i]); //ctype.h
             push(&p, caracter);
             enqueue(&f, caracter);
         }
     }
 
-    while (!filaVazia(&f))
+    while (!filaVazia(&f)) // mientras la fila este llena
     {
-        char daFila = dequeue(&f);
+        char daFila = dequeue(&f); // variables
         char daPilha = pop(&p);
         if (daFila != daPilha)
             return 0;
